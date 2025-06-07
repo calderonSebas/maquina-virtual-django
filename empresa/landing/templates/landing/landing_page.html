@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venta de Relojes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: url('https://img.freepik.com/foto-gratis/gran-ciudad_1127-3102.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .productos {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .filtro {
+      margin-bottom: 30px;
+    }
+
+    .galeria {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .producto {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto img {
+      width: 100%;
+      height: auto;
+    }
+
+    .producto h3 {
+      margin: 10px 0;
+    }
+
+    .producto button {
+      background-color: #111;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .producto button:hover {
+      background-color: #444;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Relojes de Lujo</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Elegancia y Precisión en tu Muñeca</h2>
+    <p>Descubre nuestra colección exclusiva de relojes para todos los gustos.</p>
+  </section>
+
+  <section class="productos">
+    <h2>Nuestros Relojes</h2>
+
+    <!-- Filtro -->
+    <div class="filtro">
+      <label for="categoria">Filtrar por categoría:</label>
+      <select id="categoria" onchange="filtrarProductos()">
+        <option value="todos">Todos</option>
+        <option value="clasico">Clásico</option>
+        <option value="deportivo">Deportivo</option>
+        <option value="lujo">Lujo</option>
+      </select>
+    </div>
+
+    <!-- Productos -->
+    <div class="galeria">
+      <div class="producto" data-categoria="clasico">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" alt="Reloj Clásico">
+        <h3>Reloj Clásico</h3>
+        <p>$199.99</p>
+        <button>Comprar</button>
+      </div>
+      <div class="producto" data-categoria="deportivo">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Reloj Deportivo">
+        <h3>Reloj Deportivo</h3>
+        <p>$149.99</p>
+        <button>Comprar</button>
+      </div>
+      <div class="producto" data-categoria="lujo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3a6NukuB9fOrZPIPTVm5hKU7VVq5V1KIzNA&s" alt="Reloj de Lujo">
+        <h3>Reloj de Lujo</h3>
+        <p>$299.99</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Venta de Relojes. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function filtrarProductos() {
+      const seleccion = document.getElementById("categoria").value;
+      const productos = document.querySelectorAll(".producto");
+
+      productos.forEach(producto => {
+        const categoria = producto.getAttribute("data-categoria");
+        if (seleccion === "todos" || seleccion === categoria) {
+          producto.style.display = "block";
+        } else {
+          producto.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
